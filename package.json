@@ -1,0 +1,59 @@
+{
+  "name": "peloton-statistics",
+  "description": "A CLI to retrieve statistics related to your Peloton account",
+  "version": "0.0.0",
+  "author": "Stephen Weiss @stephencweiss",
+  "bin": {
+    "pelo-stats": "./bin/run"
+  },
+  "bugs": "https://github.com/stephencweiss/peloton-statistics/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "axios": "^0.21.0",
+    "cosmiconfig": "^7.0.0",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@types/node": "^10",
+    "eslint": "^5.13",
+    "eslint-config-oclif": "^3.1",
+    "eslint-config-oclif-typescript": "^0.1",
+    "globby": "^10",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/stephencweiss/peloton-statistics",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "pelo-stats",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "stephencweiss/peloton-statistics",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "eslint . --ext .ts --config .eslintrc",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
